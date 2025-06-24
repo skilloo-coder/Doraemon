@@ -1,0 +1,364 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/** this part is also important if you are copying my code **/
+html {
+  font-size: 62.5%;
+}
+
+/** the container in which our Doraemon is placed ***/
+
+.center {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  background-color: yellow;
+}
+
+/** now we will style the FACE of Doraemon **/
+
+.center .face {
+  background-color: #fff;
+  height: 20rem;
+  width: 22rem;
+  border-radius: 50% 50% 50% 50%;
+  border: .1px solid black;
+  box-shadow: inset 1px 0px .2rem 2.5rem #0075EE;
+  position: relative;
+}
+/** this is the Belt(red) of Doraemon **/
+.face::after {
+  content: " ";
+  width: 17rem;
+  height: 1rem;
+  background-color: red;
+  border: 1px solid black;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 900;
+}
+
+.center .face .eyes {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -13px);
+}
+
+.center .face .eyes .eye {
+  width: 4.5rem;
+  height: 6rem;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 4rem;
+  transform: translateY(2rem);
+  overflow: hidden;
+}
+
+/** this part is 👀 this thing complete inner part of eyes **/
+
+.center .face .eyes .eye::after {
+  content: " ";
+  height: 2rem;
+  width: 1.5rem;
+  box-shadow: inset 0px 0px 1px 3px black;
+  border-radius: 2rem;
+  background: #fff;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  
+}
+
+.center .face .nose {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: .1px solid black;
+  background-color: white;
+  box-shadow: inset -3px 3px 5px 6px red;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/** 
+this part is moustache of Doraemon (extra + extra::before + extra::after) 
+
+here i used "extra" word that is referencing moustache 
+there are two "extra" both are for left and right 
+i want to clear that the div "extra" is only one(1) line(part)of three(3) , thats why i only used two(2) divs 
+other two(2) lines(parts) of three(3) are your extra::before and extra::after 
+
+hope it is not confusing.....
+**/
+
+.center .face .nose .extra {
+  width: 2px;
+  height: 4rem;
+  background-color: black;
+  position: absolute;
+  top: 30%;
+  transform: translateY(-80%);
+}
+
+.center .face .nose .extra::after,
+.center .face .nose .extra::before {
+  content: " ";
+  width: 2px;
+  height: 4rem;
+  background-color: black;
+  position: absolute;
+}
+
+.center .face .nose .extra::after {
+  transform: rotate(20deg) translate(-20px, 5px);
+}
+
+.center .face .nose .extra::before {
+  transform: rotate(-20deg) translate(20px, 5px);
+  ;
+}
+
+.center .face .nose .extra1 {
+  left: -200%;
+  transform: rotate(90deg) translate(0px, 15px);
+}
+
+.center .face .nose .extra2 {
+  right: -200%;
+  transform: rotate(270deg) translate(0px, 15px);
+}
+
+/** this part of code is the line connecting nose and mouth of Doraemon **/
+
+.center .face .nose::before {
+  content: " ";
+  width: 2px;
+  height: 4.6rem;
+  background-color: black;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, 35%);
+}
+
+.center .face .mouth {
+  width: 10rem;
+  height: 5rem;
+  background-color: #FE6600;
+  border: 1px solid black;
+  border-bottom-left-radius: 500px;
+  border-bottom-right-radius: 500px;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  
+}
+
+/** it is the red part inside mouth (tongue) **/
+
+.center .face .mouth::before {
+  content: " ";
+  width: 8rem;
+  height: 4rem;
+  background-color: #EE412B;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 0;
+}
+
+/** below this everything is now related to the parts of body below face + bell **/
+
+.doraemon_body {
+  width: 16.2rem;
+  height: 15rem;
+  background: transparent;
+  position: relative;
+  top: -20px;
+}
+
+/** this part is for the white foot of Doraemon **/
+
+.doraemon_body::after,
+.doraemon_body::before {
+  content: " ";
+  width: 8.1rem;
+  height: 1rem;
+  border: 1.5px solid #333;
+  position: absolute;
+  background: #fff;
+  bottom: 0rem;
+  border-radius: 10px;
+  z-index: 999;
+}
+
+.doraemon_body::after {
+  left: 0;
+  transform: translate(-3px, 1.1rem);
+}
+
+.doraemon_body::before {
+  right: 0;
+  transform: translate(3px, 1.1rem);
+}
+
+.doraemon_body .left_part,
+.right_part {
+  width: 8.1rem;
+  height: 100%;
+  position: absolute;
+  background-color: #0F70FF;
+}
+
+.doraemon_body .left_part {
+  border-bottom-right-radius: 10px;
+}
+
+.doraemon_body .right_part {
+  right: 0;
+  border-bottom-left-radius: 10px;
+}
+
+.center .doraemon_body .pocket_holder {
+  background-color: #fff;
+  height: 12rem;
+  width: 13rem;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -14px);
+  border-radius: 50%;
+  z-index: 881;
+}
+
+/** 
+this part contains the very important part if Doraemon that is space-pocket 
+in his pocket he stores many useful and sometimes useless gadgets and can also store anything not just gadgets
+**/
+
+.center .doraemon_body .pocket_holder::after {
+  content: " ";
+  width: 10rem;
+  height: 5rem;
+  background-color: white;
+  border: 1px solid black;
+  border-bottom-left-radius: 500px;
+  border-bottom-right-radius: 500px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0px -1px 1rem -0.6rem #333;
+}
+
+/*------bell & his parts-----before & after------
+
+it means a complete bell ( 🔔 )
+---*/
+.center .doraemon_body .bell {
+  width: 2rem;
+  height: 3rem;
+  background-color: gold;
+  border-radius: 45%;
+  border: .1px solid black;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -1rem);
+  z-index: 950;
+}
+
+/** this is the rectangular type  part of the bell (yellow) **/
+
+.center .doraemon_body .bell::before {
+  content: " ";
+  width: 2.1rem;
+  height: .5rem;
+  background-color: #ECD10B;
+  border: .1px solid black;
+  border-radius: 7px 7px 4px 4px;
+  box-shadow: inset 0px -1px 1.5px #FFFAD2;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/** this is "|" this black part in   bell **/
+
+.center .doraemon_body .bell::after {
+  content: " ";
+  background-color: black;
+  width: 2px;
+  height: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/** this is the inner black circular hole of the bell **/
+.center .doraemon_body .bell .bell_circle {
+  width: 4px;
+  height: 4px;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/** these are Arm **/
+
+.hands {
+  background-color: #0F70FF;
+  width: 3rem;
+  height: 10rem;
+  border-radius: 50%;
+  position: absolute;
+  top: -1px;
+}
+
+/** this is the white wrist (hand ) of Doraemon **/
+
+.hand1::after,
+.hand2::after {
+  content: " ";
+  width: 3rem;
+  height: 3rem;
+  background: white;
+  border: .1px solid black;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(5px);
+}
+
+.center .hand1 {
+  left: 0;
+  transform: translate(-3rem, -1.5rem) rotate(40deg);
+}
+
+.center .hand2 {
+  right: 0;
+  transform: translate(3rem, -1.5rem) rotate(-40deg);
+}
